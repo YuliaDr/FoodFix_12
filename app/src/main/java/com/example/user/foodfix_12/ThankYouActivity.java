@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.user.foodfix_12.View.RegistrActivity;
+
 public class ThankYouActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

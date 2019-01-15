@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.user.foodfix_12.View.LoginActivity;
+import com.example.user.foodfix_12.View.RestoratorExitActivity;
+
 public class UserChoiceActivity extends AppCompatActivity implements View.OnClickListener {
     TextView textViewUs;
     TextView textViewRst;
