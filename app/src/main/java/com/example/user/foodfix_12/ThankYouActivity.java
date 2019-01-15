@@ -12,7 +12,6 @@ public class ThankYouActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thankyou);
         TextView registerScreen = findViewById(R.id.link_to_register);
-щш
         registerScreen.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
