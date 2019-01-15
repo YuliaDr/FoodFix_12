@@ -2,19 +2,14 @@ package com.example.user.foodfix_12;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.TextView;
 
-public class UserChoice extends AppCompatActivity {
-    TextView textViewUs;
-    TextView textViewRst;
-
+public class RegistrActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user);
+        setContentView(R.layout.activity_regist);
 
-        textViewRst = findViewById(R.id.restorator);
-        textViewUs = findViewById(R.id.user);
     }
-
 }

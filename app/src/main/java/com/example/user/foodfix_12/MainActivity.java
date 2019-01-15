@@ -1,17 +1,15 @@
 package com.example.user.foodfix_12;
 
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     private TextView textView;
     Handler handler;
-    int limit = 5;
+    int limit = 3;
     int count = 0;
 
     @Override
@@ -30,8 +28,9 @@ public class MainActivity extends AppCompatActivity {
 
             count++;
             if (count == limit) {
-                Intent intent = new Intent(MainActivity.this, UserChoice.class);
+                Intent intent = new Intent(MainActivity.this, UserChoiceActivity.class);
                 startActivity(intent);
+                finish();
             } else {handler.postDelayed(onEverySecond, 1000);
             }
         }
