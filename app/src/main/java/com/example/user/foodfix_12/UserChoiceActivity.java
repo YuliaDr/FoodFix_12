@@ -28,7 +28,11 @@ public class UserChoiceActivity extends AppCompatActivity implements View.OnClic
             case R.id.user:
                 Intent intent = new Intent(UserChoiceActivity.this, LoginActivity.class);
                 startActivity(intent);
+                break;
             case R.id.restorator:
+                Intent intent2 = new Intent(UserChoiceActivity.this, RestoratorExitActivity.class);
+                startActivity(intent2);
+                break;
         }
 
     }
