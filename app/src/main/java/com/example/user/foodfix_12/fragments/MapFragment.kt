@@ -11,7 +11,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 /**
  * Created by bagrusss on 17.01.2019
  */
-class MapFragment : BaseFragment<FragmentMapBinding>(), OnMapReadyCallback {
+class MapFragment : BaseFragment<FragmentMapBinding>(), OnMapReadyCallback, GoogleMap.OnCameraIdleListener {
 
     private lateinit var googleMap: GoogleMap
 
@@ -49,13 +49,12 @@ class MapFragment : BaseFragment<FragmentMapBinding>(), OnMapReadyCallback {
 
     override fun onMapReady(map: GoogleMap) {
         googleMap = map
-        map.run {
-            //isMyLocationEnabled = true
-            // перемещение камеры, в т.ч.
-            setOnCameraIdleListener {
+        // перемещение камеры, в т.ч.
+        map.setOnCameraIdleListener(this@MapFragment)
+    }
 
-            }
-        }
+    override fun onCameraIdle() {
+
     }
 
 }
