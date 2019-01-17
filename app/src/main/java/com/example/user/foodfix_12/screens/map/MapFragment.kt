@@ -12,6 +12,7 @@ import com.example.user.foodfix_12.net.Net
 import com.example.user.foodfix_12.utils.rx.plusAssign
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
+import io.reactivex.android.schedulers.AndroidSchedulers
 
 
 /**
@@ -35,11 +36,10 @@ class MapFragment : BaseFragment<FragmentMapBinding>(), OnMapReadyCallback, Goog
             override fun afterTextChanged(s: Editable) {
                 disposables += Net.netContext.geoApi.getAddressesByText(text = s.toString())
                         .map { it.map { geo -> geo.textAddress } }
-                        .subscribe({
-                            adapter.swapData(it)
-                        }, {
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(adapter::swapData) {
                             Log.e("", it.message, it)
-                        })
+                        }
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {

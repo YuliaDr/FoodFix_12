@@ -5,3 +5,5 @@ package com.example.user.foodfix_12.api.model.geo
  */
 class GeoObject(@JvmField val textAddress: String,
                 @JvmField val point: GeoCoordinates)
+
+class GeoList(size: Int): ArrayList<GeoObject>(size)

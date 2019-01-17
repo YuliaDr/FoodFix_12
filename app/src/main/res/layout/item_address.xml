@@ -3,12 +3,16 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:padding="8dp">
 
         <TextView
             android:id="@+id/address_text"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorUser"
+            android:textSize="15sp" />
 
     </FrameLayout>
 </layout>

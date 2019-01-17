@@ -1,5 +1,6 @@
 package com.example.user.foodfix_12.net
 
+import com.example.user.foodfix_12.api.model.geo.GeoList
 import com.example.user.foodfix_12.api.model.geo.GeoObject
 import com.example.user.foodfix_12.api.serializers.GeoObjectListDeserializer
 import com.facebook.stetho.okhttp3.StethoInterceptor
@@ -27,7 +28,8 @@ object Net {
             .addNetworkInterceptor(StethoInterceptor())
             .build()
 
-    private val gson = GsonBuilder().registerTypeAdapter(object : TypeToken<List<GeoObject>>(){}.type, GeoObjectListDeserializer())
+    private val gson = GsonBuilder().registerTypeAdapter(GeoList::class.java, GeoObjectListDeserializer())
+                                    .setLenient()
                                     .create()
 
     private val geoRetrofit = Retrofit.Builder()
