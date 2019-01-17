@@ -49,6 +49,13 @@ class MapFragment : BaseFragment<FragmentMapBinding>(), OnMapReadyCallback {
 
     override fun onMapReady(map: GoogleMap) {
         googleMap = map
+        map.run {
+            //isMyLocationEnabled = true
+            // перемещение камеры, в т.ч.
+            setOnCameraIdleListener {
+
+            }
+        }
     }
 
 }
