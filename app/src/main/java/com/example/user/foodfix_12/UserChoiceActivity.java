@@ -26,9 +26,10 @@ public class UserChoiceActivity extends AppCompatActivity implements View.OnClic
         textViewUs.setOnClickListener(this);
 
 
-        getSupportFragmentManager().beginTransaction()
+        //посмотрите поиск адреса!
+        /*getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, new MapFragment())
-                .commitAllowingStateLoss();
+                .commitAllowingStateLoss();*/
     }
 
     @Override
