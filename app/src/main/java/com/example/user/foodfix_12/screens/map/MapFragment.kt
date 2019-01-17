@@ -1,10 +1,15 @@
-package com.example.user.foodfix_12.ui.page.map
+package com.example.user.foodfix_12.screens.map
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import com.example.user.foodfix_12.R
 import com.example.user.foodfix_12.databinding.FragmentMapBinding
 import com.example.user.foodfix_12.fragments.BaseFragment
+import com.example.user.foodfix_12.net.Net
+import com.example.user.foodfix_12.utils.rx.plusAssign
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 
@@ -25,6 +30,27 @@ class MapFragment : BaseFragment<FragmentMapBinding>(), OnMapReadyCallback, Goog
         binding.mapView.getMapAsync(this)
 
         binding.addresses.adapter = adapter
+        binding.searchAddress.addTextChangedListener(object : TextWatcher {
+
+            override fun afterTextChanged(s: Editable) {
+                disposables += Net.netContext.geoApi.getAddressesByText(text = s.toString())
+                        .map { it.map { geo -> geo.textAddress } }
+                        .subscribe({
+                            adapter.swapData(it)
+                        }, {
+                            Log.e("", it.message, it)
+                        })
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+
+        })
     }
 
     override fun onStart() {

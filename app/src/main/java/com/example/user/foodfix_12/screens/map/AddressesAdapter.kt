@@ -1,4 +1,4 @@
-package com.example.user.foodfix_12.ui.page.map
+package com.example.user.foodfix_12.screens.map
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

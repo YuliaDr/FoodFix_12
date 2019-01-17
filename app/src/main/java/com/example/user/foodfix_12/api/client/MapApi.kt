@@ -1,6 +1,7 @@
 package com.example.user.foodfix_12.api.client
 
 import com.example.user.foodfix_12.api.model.geo.GeoObject
+import com.example.user.foodfix_12.api.model.response.Response
 
 import io.reactivex.Single
 import retrofit2.http.GET

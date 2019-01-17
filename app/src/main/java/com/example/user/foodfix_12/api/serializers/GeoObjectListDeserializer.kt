@@ -1,64 +1,48 @@
-package com.example.user.foodfix_12.api.serializers;
+package com.example.user.foodfix_12.api.serializers
 
-import com.example.user.foodfix_12.api.model.geo.GeoCoordinates;
-import com.example.user.foodfix_12.api.model.geo.GeoObject;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
+import com.example.user.foodfix_12.api.model.geo.GeoCoordinates
+import com.example.user.foodfix_12.api.model.geo.GeoObject
+import com.google.gson.JsonDeserializationContext
+import com.google.gson.JsonDeserializer
+import com.google.gson.JsonElement
+import com.google.gson.JsonObject
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
+import java.lang.reflect.Type
+import java.util.ArrayList
 
 /**
  * Created by bagrusss on 17.01.2019
  */
-public class GeoObjectListDeserializer implements JsonDeserializer<List<GeoObject>> {
+class GeoObjectListDeserializer : JsonDeserializer<List<GeoObject>> {
 
-    @Override
-    public List<GeoObject> deserialize(JsonElement json,
-                                       Type typeOfT,
-                                       JsonDeserializationContext context) throws JsonParseException {
+    override fun deserialize(json: JsonElement, typeOfT: Type?, context: JsonDeserializationContext?): List<GeoObject> {
+        val geoCollection = json.asJsonObject["response"]
+                .asJsonObject["GeoObjectCollection"].asJsonObject
 
-        JsonObject geoCollection = json.getAsJsonObject().get("response")
-                .getAsJsonObject().get("GeoObjectCollection")
-                .getAsJsonObject();
+        val size = geoCollection["metaDataProperty"]
+                .asJsonObject["GeocoderResponseMetaData"]
+                .asJsonObject["results"]
+                .asInt
+        val members = geoCollection["featureMember"].asJsonArray
+        val list = ArrayList<GeoObject>(size)
+        var textAddress: String
+        var mapsGeoObject: JsonObject
+        members.forEach { member ->
+            mapsGeoObject = member.asJsonObject["GeoObject"].asJsonObject
 
-        int size = geoCollection.get("metaDataProperty")
-                .getAsJsonObject().get("GeocoderResponseMetaData")
-                .getAsJsonObject().get("found")
-                .getAsInt();
-
-        JsonArray members = geoCollection.get("featureMember")
-                .getAsJsonArray();
-
-        final List<GeoObject> list = new ArrayList<>(size);
-        String textAddress;
-        JsonObject mapsGeoObject;
-        for (JsonElement member : members) {
-            mapsGeoObject = member.getAsJsonObject()
-                    .get("GeoObject")
-                    .getAsJsonObject();
-
-            textAddress = mapsGeoObject.getAsJsonObject().get("metaDataProperty")
-                    .getAsJsonObject().get("GeocoderMetaData")
-                    .getAsJsonObject().get("AddressDetails")
-                    .getAsJsonObject().get("Country")
-                    .getAsJsonObject().get("AddressLine")
-                    .getAsString();
-
-            String[] coordinates = mapsGeoObject.get("Point").getAsJsonObject()
-                    .get("pos").getAsString()
-                    .split(" ");
-
-            GeoCoordinates geoCoordinates = new GeoCoordinates(Double.valueOf(coordinates[0]), Double.valueOf(coordinates[1]));
-            GeoObject geoObject = new GeoObject(textAddress, geoCoordinates);
-            list.add(geoObject);
+            textAddress = mapsGeoObject
+                    .asJsonObject["metaDataProperty"]
+                    .asJsonObject["GeocoderMetaData"]
+                    .asJsonObject["AddressDetails"]
+                    .asJsonObject["Country"]
+                    .asJsonObject["AddressLine"]
+                    .asString
+            val coordinates = mapsGeoObject["Point"].asJsonObject["pos"].asString.split(" ")
+            val point = GeoCoordinates(coordinates[1].toDouble(), coordinates.first().toDouble())
+            val geoObject = GeoObject(textAddress, point)
+            list.add(geoObject)
         }
-
-        return list;
+        return list
     }
+
 }

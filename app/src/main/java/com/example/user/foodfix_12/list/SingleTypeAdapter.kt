@@ -16,7 +16,7 @@ abstract class SingleTypeAdapter<D, VH : DataViewHolder<*, D>> : RecyclerView.Ad
     /**
      * user for change items in the list
      */
-    protected fun swapData(newData: List<D>) {
+    fun swapData(newData: List<D>) {
         data.clear()
         data.addAll(newData)
         notifyDataSetChanged()
