@@ -16,7 +16,7 @@ import retrofit2.http.POST
  */
 interface UserService {
 
-    @POST("auth/confirmation")
+    @POST("auth/registration")
     fun regusterUser(@Body request: RegistrationRequest): Single<Response<RegistrationResponse>>
 
     @POST("auth/confirm")
