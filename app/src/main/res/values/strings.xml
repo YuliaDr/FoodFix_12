@@ -12,4 +12,5 @@
     <string name="secondname">Отчество</string>
     <string name="sendcode">Отправить код</string>
     <string name="entercode">Введите код</string>
+    <string name="google_maps_key">key here</string>
 </resources>

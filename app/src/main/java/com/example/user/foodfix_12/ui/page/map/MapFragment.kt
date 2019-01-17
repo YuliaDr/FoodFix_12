@@ -1,9 +1,10 @@
-package com.example.user.foodfix_12.fragments
+package com.example.user.foodfix_12.ui.page.map
 
 import android.os.Bundle
 import android.view.View
 import com.example.user.foodfix_12.R
 import com.example.user.foodfix_12.databinding.FragmentMapBinding
+import com.example.user.foodfix_12.fragments.BaseFragment
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 
@@ -15,11 +16,15 @@ class MapFragment : BaseFragment<FragmentMapBinding>(), OnMapReadyCallback, Goog
 
     private lateinit var googleMap: GoogleMap
 
+    private val adapter = AddressesAdapter()
+
     override val layout = R.layout.fragment_map
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.mapView.onCreate(null)
         binding.mapView.getMapAsync(this)
+
+        binding.addresses.adapter = adapter
     }
 
     override fun onStart() {
@@ -49,10 +54,10 @@ class MapFragment : BaseFragment<FragmentMapBinding>(), OnMapReadyCallback, Goog
 
     override fun onMapReady(map: GoogleMap) {
         googleMap = map
-        // перемещение камеры, в т.ч.
-        map.setOnCameraIdleListener(this@MapFragment)
+        map.setOnCameraIdleListener(this)
     }
 
+    // перемещение камеры, в т.ч. зум
     override fun onCameraIdle() {
 
     }
