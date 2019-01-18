@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.example.user.foodfix_12.View.LoginActivity;
 import com.example.user.foodfix_12.View.RestoratorExitActivity;
+import com.example.user.foodfix_12.screens.map.MapFragment;
 
 public class UserChoiceActivity extends AppCompatActivity implements View.OnClickListener {
     TextView textViewUs;
@@ -23,6 +24,12 @@ public class UserChoiceActivity extends AppCompatActivity implements View.OnClic
 
         textViewRst.setOnClickListener(this);
         textViewUs.setOnClickListener(this);
+
+
+        //посмотрите поиск адреса!
+        /*getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, new MapFragment())
+                .commitAllowingStateLoss();*/
     }
 
     @Override
