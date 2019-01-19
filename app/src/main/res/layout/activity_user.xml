@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center"
-        tools:context=".UserChoiceActivity">
+        tools:context=".activity.UserChoiceActivity">
 
         <TextView
             android:id="@+id/restorator"

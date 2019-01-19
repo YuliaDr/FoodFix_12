@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".View.MainActivity"
+        <activity android:name=".activity.MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -19,30 +19,34 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".UserChoiceActivity"
+        <activity android:name=".activity.UserChoiceActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".View.LoginActivity"
+        <activity android:name=".activity.LoginActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".View.RegistrActivity"
+        <activity android:name=".activity.RegistrActivity"
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".ThankYouActivity"
+        <activity android:name=".activity.ThankYouActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".View.RestoratorExitActivity"
+        <activity android:name=".activity.RestoratorExitActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:screenOrientation="portrait">
         </activity>
 
+        <activity android:name=".activity.MainMenu"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="portrait">
+        </activity>
 
     </application>
 

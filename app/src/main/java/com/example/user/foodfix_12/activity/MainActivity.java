@@ -1,4 +1,4 @@
-package com.example.user.foodfix_12.View;
+package com.example.user.foodfix_12.activity;
 
 import android.content.Intent;
 import android.os.Handler;
@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.user.foodfix_12.R;
-import com.example.user.foodfix_12.UserChoiceActivity;
 
 public class MainActivity extends AppCompatActivity {
     private TextView textView;

@@ -1,4 +1,4 @@
-package com.example.user.foodfix_12.View;
+package com.example.user.foodfix_12.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

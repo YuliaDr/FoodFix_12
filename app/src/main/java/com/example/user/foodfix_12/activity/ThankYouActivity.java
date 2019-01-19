@@ -1,4 +1,4 @@
-package com.example.user.foodfix_12.View;
+package com.example.user.foodfix_12.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,27 +8,23 @@ import android.widget.TextView;
 
 import com.example.user.foodfix_12.R;
 
-public class LoginActivity extends AppCompatActivity {
-    private TextView textView;
+public class ThankYouActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-
+        setContentView(R.layout.activity_thankyou);
         TextView registerScreen = findViewById(R.id.link_to_register);
-
-        textView = findViewById(R.id.textView);
-
-        // Listening to register new account link
         registerScreen.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-            // Switching to Register screen
+
                 Intent i = new Intent(getApplicationContext(), RegistrActivity.class);
                 startActivity(i);
             }
         });
+        textView = findViewById(R.id.textView);
     }
 
-
+    private TextView textView;
 }
+

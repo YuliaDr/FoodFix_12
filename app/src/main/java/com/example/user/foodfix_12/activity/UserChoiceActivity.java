@@ -1,4 +1,4 @@
-package com.example.user.foodfix_12;
+package com.example.user.foodfix_12.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,8 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.user.foodfix_12.View.LoginActivity;
-import com.example.user.foodfix_12.View.RestoratorExitActivity;
+import com.example.user.foodfix_12.R;
 
 public class UserChoiceActivity extends AppCompatActivity implements View.OnClickListener {
     TextView textViewUs;
